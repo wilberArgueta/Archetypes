@@ -1,6 +1,5 @@
 # Arquetipos
-#### Arquetipos personalizados y como una breve introduccion a la creación de `arquetipos` propios, para profundizar en el tema,
-#### los invito a consultar la documentación de `maven`.
+#### Arquetipos personalizados y como una breve introduccion a la creación de `arquetipos` propios, para profundizar en el tema, los invito a consultar la documentación de `maven`.
 
 ***
 
