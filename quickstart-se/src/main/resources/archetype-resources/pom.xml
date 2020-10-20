@@ -8,18 +8,23 @@
 
     <name>${artifactId}</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+        <!-- RUTA DEL javac, encaso de necesitar uno diferente, al establecido en el entorno.
+		<jdk>C:\Program Files\AdoptOpenJDK\jdk-8.0.252.09-openj9\bin\javac.exe</jdk>
+        -->
+	</properties>
+
 
 
     <dependencies>
-        <dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20200518</version>
+	<!-- https://mvnrepository.com/artifact/com.github.cliftonlabs/json-simple -->
+		<dependency>
+			<groupId>com.github.cliftonlabs</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>3.1.1</version>
 		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -40,23 +45,44 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <!-- CONFIG TO SPECIFIE JDK AND INLCLUDE JAR-->
-                <!-- 
-                <configuration>
-                    <includeSystemScope>true</includeSystemScope>
-                    <verbose>true</verbose>
-                    <fork>true</fork>
-                    <executable>C:\Program Files\AdoptOpenJDK\jdk-8.0.252.09-openj9\bin\javac.exe</executable>
-                    <compilerVersion>1.8</compilerVersion>
-                </configuration> -->
-            </plugin>
-        </plugins>
-    </build>
+   <build>
+		<plugins>
+       
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+                 <!-- ESTABLECER LA VERSION Y RUTA DEL javac
+				<configuration>
+					<verbose>true</verbose>
+					<fork>true</fork>
+					<executable>${jdk}</executable>
+					<compilerVersion>1.8</compilerVersion>
+				</configuration>-->
+			</plugin>
+
+
+            <!-- INCLUIR DEPENDENCIAS EN jar, fat-jar
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> 
+						<phase>package</phase> 
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            -->
+		</plugins>
+	</build>
 
 </project>

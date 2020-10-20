@@ -24,7 +24,7 @@
 #### `mvn install`
 
 ### Comando para crear un proyecto con `maven` apartir del arquetipo
-#### `mvn archetype:generate -DarchetypeGroupId=org.general -DarchetypeArtifactId=quickstart-se -DarchetypeVersion=0.0.1 -DgroupId=<mygroupid> -DartifactId=<my-artifactId>` 
+#### `mvn archetype:generate -DarchetypeGroupId=com.github.wilberargueta -DarchetypeArtifactId=quickstart-se -DarchetypeVersion=0.0.1 -DgroupId=<mygroupid> -DartifactId=<my-artifactId>` -Dversion=<version> -DinteractiveMode=false
 
 ---
 
